@@ -1,11 +1,12 @@
 /**
  * Definition for a binary tree node.**/
- 
+#include<bits/stdc++.h>
+ using namespace std;
   struct TreeNode {
       int val;
       TreeNode *left;
       TreeNode *right;
-       TreeNode(int val) : data(val) , left(nullptr) , right(nullptr) {}
+       TreeNode(int val) : val(val) , left(nullptr) , right(nullptr) {}
   };
 
 
@@ -15,7 +16,7 @@ class Solution{
             if(root==NULL)return {};
             vector<int> pre,in,post;
             stack<pair<TreeNode*,int>>st;
-            st.push(root,1);
+            st.push({root,1});
             
             while(!st.empty()){
                 auto it=st.top();
@@ -27,7 +28,7 @@ class Solution{
                     it.second++;
                     st.push(it);
                     if(it.first->left!=NULL)
-                        st.push_back({it.first->left,1});
+                        st.push({it.first->left,1});
                 }
                 else if(it.second==2)
                 {
@@ -35,7 +36,7 @@ class Solution{
                     it.second++;
                     st.push(it);
                     if(it.first->right!=NULL)
-                        st.push_back({it.first->right,2})
+                        st.push({it.first->right,2})
                 }
                 else{
                     post.push_back(it.first->val)
