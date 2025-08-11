@@ -2,7 +2,7 @@
  * Definition for a binary tree node.**/
 #include<bits/stdc++.h>
  using namespace std;
-  struct TreeNode {
+    struct TreeNode {
       int val;
       TreeNode *left;
       TreeNode *right;
@@ -30,16 +30,15 @@ class Solution{
                     if(it.first->left!=NULL)
                         st.push({it.first->left,1});
                 }
-                else if(it.second==2)
-                {
+                else if(it.second==2){
                     in.push_back(it.first->val);
                     it.second++;
                     st.push(it);
                     if(it.first->right!=NULL)
-                        st.push({it.first->right,2})
+                        st.push({it.first->right,2});
                 }
                 else{
-                    post.push_back(it.first->val)
+                    post.push_back(it.first->val);
                 }
             } return {pre, in, post};
 		}
